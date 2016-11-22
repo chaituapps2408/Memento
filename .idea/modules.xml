@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Memento.iml" filepath="$PROJECT_DIR$/Memento.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/darksky/darksky.iml" filepath="$PROJECT_DIR$/darksky/darksky.iml" />
+      <module fileurl="file://$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" filepath="$PROJECT_DIR$/infinitecycleviewpager/infinitecycleviewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memento/memento.iml" filepath="$PROJECT_DIR$/memento/memento.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nytimesclient/nytimesclient.iml" filepath="$PROJECT_DIR$/nytimesclient/nytimesclient.iml" />
+    </modules>
+  </component>
+</project>
