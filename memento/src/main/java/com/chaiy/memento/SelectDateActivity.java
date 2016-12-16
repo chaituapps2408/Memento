@@ -156,7 +156,6 @@ public class SelectDateActivity extends AppCompatActivity implements
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -231,7 +230,7 @@ public class SelectDateActivity extends AppCompatActivity implements
                     createLocationRequest();
                 } else {
                     // Permission Denied
-                    Toast.makeText(SelectDateActivity.this, "ACCESS_FINE_LOCATION Denied", Toast.LENGTH_SHORT)
+                    Toast.makeText(SelectDateActivity.this, getString(R.string.location_error_msg), Toast.LENGTH_SHORT)
                             .show();
                 }
                 break;

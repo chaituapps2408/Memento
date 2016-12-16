@@ -80,7 +80,6 @@ class WeatherListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFac
     public static String formatTemperature(Context context, String temperature) {
         // Data stored in Celsius by default.  If user prefers to see in Fahrenheit, convert
         // the values here.
-        String suffix = "\u00B0";
        /* if (!isMetric(context)) {
             temperature = (temperature * 1.8) + 32;
         }*/

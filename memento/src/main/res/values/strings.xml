@@ -622,6 +622,7 @@
     <string name="news">News</string>
     <string name="weather">Weather</string>
     <string name="back">back</string>
+    <string name="location_error_msg">ACCESS_FINE_LOCATION Denied</string>
 
 
 </resources>

@@ -253,7 +253,7 @@ public class EventsFeedActivity extends AppCompatActivity implements
                     createLocationRequest();
                 } else {
                     // Permission Denied
-                    Toast.makeText(EventsFeedActivity.this, "ACCESS_FINE_LOCATION Denied", Toast.LENGTH_SHORT)
+                    Toast.makeText(EventsFeedActivity.this, R.string.location_error_msg, Toast.LENGTH_SHORT)
                             .show();
                     getLastKnownLocation();
                 }

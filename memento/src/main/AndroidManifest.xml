@@ -37,10 +37,6 @@
             </intent-filter>
         </service>
 
-        <service
-            android:name="com.chaiy.memento.network.MementoBgService"
-            android:exported="false" />
-
         <receiver
             android:name=".network.MementoAlarmReceiver"
             android:process=":remote" />
