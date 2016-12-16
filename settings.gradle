@@ -1,1 +1,1 @@
-include ':memento', ':backend', ':nytimesclient', ':darksky', ':infinitecycleviewpager'
+include ':memento', ':backend', ':nytimesclient', ':darksky'

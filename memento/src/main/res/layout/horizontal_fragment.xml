@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -12,18 +13,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="TEST" />
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        android:textSize="20sp"
+        tools:text="TEST" />
 
     <com.gigamole.infinitecycleviewpager.VerticalInfiniteCycleViewPager
         android:id="@+id/vicvp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:icvp_center_page_scale_offset="5dp"
-        app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
-        app:icvp_max_page_scale="1"
+        app:icvp_center_page_scale_offset="30dp"
+        app:icvp_max_page_scale="0.8"
         app:icvp_medium_scaled="true"
-        app:icvp_min_page_scale="0.2"
+        app:icvp_min_page_scale="0.5"
         app:icvp_min_page_scale_offset="5dp"
-        app:icvp_scroll_duration="250" />
+        app:icvp_scroll_duration="500"/>
+        <!--app:icvp_center_page_scale_offset="5dp"
+        app:icvp_interpolator="@android:anim/accelerate_decelerate_interpolator"
+        app:icvp_max_page_scale=".95"
+        app:icvp_medium_scaled="true"
+        app:icvp_min_page_scale="0.05"
+        app:icvp_min_page_scale_offset="5dp"
+        app:icvp_scroll_duration="250" />-->
 
 </LinearLayout>

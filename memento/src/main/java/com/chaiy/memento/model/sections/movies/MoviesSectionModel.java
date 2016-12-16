@@ -5,6 +5,7 @@ import android.os.Parcel;
 
 import com.chaiy.memento.model.sections.BaseSectionModel;
 import com.chaiy.memento.model.sections.Sections;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -14,11 +15,15 @@ import java.util.List;
 
 public class MoviesSectionModel extends BaseSectionModel {
 
+    @SerializedName("moviesItemBeanList")
     private final List<MoviesItemModel> moviesItemModelList;
 
-    public MoviesSectionModel(List<MoviesItemModel> moviesItemBeanList) {
+    private  TmdbConfig tmdbConfig;
+
+    public MoviesSectionModel(TmdbConfig tmdbConfig, List<MoviesItemModel> moviesItemModelList) {
         super(Sections.MOVIES);
-        this.moviesItemModelList = moviesItemBeanList;
+        this.tmdbConfig = tmdbConfig;
+        this.moviesItemModelList = moviesItemModelList;
     }
 
     public List<MoviesItemModel> getMoviesItemModelList() {
@@ -35,11 +40,13 @@ public class MoviesSectionModel extends BaseSectionModel {
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeTypedList(this.moviesItemModelList);
+        dest.writeParcelable(this.tmdbConfig, flags);
     }
 
     protected MoviesSectionModel(Parcel in) {
         super(in);
         this.moviesItemModelList = in.createTypedArrayList(MoviesItemModel.CREATOR);
+        this.tmdbConfig = in.readParcelable(TmdbConfig.class.getClassLoader());
     }
 
     public static final Creator<MoviesSectionModel> CREATOR = new Creator<MoviesSectionModel>() {

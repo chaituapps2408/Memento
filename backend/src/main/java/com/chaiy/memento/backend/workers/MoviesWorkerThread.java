@@ -35,7 +35,8 @@ public class MoviesWorkerThread implements Runnable {
         TmdbApi tmdbApi = MovieApiHelper.getTMDBApi(API_KEY);
         Discover discover = new Discover()
                 .releaseDateGte(date)
-                .releaseDateLte(date).page(1)
+                .releaseDateLte(date)
+                .page(1)
                 .sortBy("vote_average.desc");
         MovieResultsPage movieResultsPage = tmdbApi.getDiscover().getDiscover(discover);
         List<MovieDb> movieDbList = movieResultsPage.getResults();

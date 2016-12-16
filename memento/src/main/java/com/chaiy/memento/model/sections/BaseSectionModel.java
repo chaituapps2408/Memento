@@ -49,15 +49,4 @@ public class BaseSectionModel implements Parcelable {
         this.section = tmpSection == -1 ? null : Sections.values()[tmpSection];
     }
 
-    public static final Creator<BaseSectionModel> CREATOR = new Creator<BaseSectionModel>() {
-        @Override
-        public BaseSectionModel createFromParcel(Parcel source) {
-            return new BaseSectionModel(source);
-        }
-
-        @Override
-        public BaseSectionModel[] newArray(int size) {
-            return new BaseSectionModel[size];
-        }
-    };
 }

@@ -5,6 +5,7 @@ import android.os.Parcel;
 
 import com.chaiy.memento.model.sections.BaseSectionModel;
 import com.chaiy.memento.model.sections.Sections;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class NewsSectionModel extends BaseSectionModel {
 
+    @SerializedName("newsItemBeanList")
     final List<NewsItemModel> newsItemModelList;
 
     public NewsSectionModel(List<NewsItemModel> newsItemModelList) {

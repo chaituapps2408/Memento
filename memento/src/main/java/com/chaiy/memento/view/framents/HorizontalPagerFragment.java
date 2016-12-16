@@ -2,7 +2,6 @@ package com.chaiy.memento.view.framents;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,15 @@ import com.chaiy.memento.model.sections.BaseSectionModel;
 import com.chaiy.memento.model.sections.Sections;
 import com.chaiy.memento.model.sections.movies.MoviesSectionModel;
 import com.chaiy.memento.model.sections.news.NewsSectionModel;
+import com.chaiy.memento.model.sections.weather.WeatherSectionModel;
 import com.chaiy.memento.view.adapter.BaseVerticalPagerAdapter;
 import com.chaiy.memento.view.adapter.MoviesVerticalPagerAdapter;
 import com.chaiy.memento.view.adapter.NewsVerticalPagerAdapter;
+import com.chaiy.memento.view.adapter.WeatherVerticalPagerAdapter;
 import com.gigamole.infinitecycleviewpager.VerticalInfiniteCycleViewPager;
 
 
-public class HorizontalPagerFragment extends Fragment {
+public class HorizontalPagerFragment extends BaseFragment {
 
 
     private static final String SECTION_DATA = "SECTION_DATA";
@@ -91,8 +92,9 @@ public class HorizontalPagerFragment extends Fragment {
             case MOVIES:
                 return new MoviesVerticalPagerAdapter(getChildFragmentManager(), (MoviesSectionModel) sectionData);
             case WEATHER:
+                return new WeatherVerticalPagerAdapter(getChildFragmentManager(), (WeatherSectionModel) sectionData);
             default:
-                return new MoviesVerticalPagerAdapter(getChildFragmentManager(), (MoviesSectionModel) sectionData);
+                return null;
         }
     }
 }

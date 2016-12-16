@@ -13,12 +13,15 @@ import com.chaiy.nytimes.bean.articles.HeadLine;
 import com.chaiy.nytimes.bean.articles.Multimedia;
 import com.chaiy.nytimes.response.ArticleSearchResponse;
 import com.github.dvdme.ForecastIOLib.FIODataPoint;
-import com.google.appengine.repackaged.com.google.common.base.StringUtil;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import info.movito.themoviedbapi.model.Language;
 import info.movito.themoviedbapi.model.MovieDb;
+
 
 /**
  * Created by Chaiy on 11/6/2016.
@@ -57,12 +60,11 @@ public class MementoBeanGeneratorUtility {
             if (article.getHeadline() != null && article.getHeadline().size() > 0) {
 
                 HeadLine headLine = article.getHeadline().get(0);
-                if (StringUtil.isEmptyOrWhitespace(headLine.getMain())) {
+                if (!StringUtils.EMPTY.equalsIgnoreCase(headLine.getMain())) {
                     newsItemBean.setHeadLine(headLine.getMain());
                 } else {
                     newsItemBean.setHeadLine(headLine.getPrintHeadline());
                 }
-
             }
 
             newsItemBeanList.add(newsItemBean);
@@ -127,21 +129,37 @@ public class MementoBeanGeneratorUtility {
                     ._id(movieDB.getId())
                     .movieName(movieDB.getTitle())
                     .rating(Float.toString(movieDB.getVoteAverage()))
+                    .language(getLanguage(movieDB))
+                    .overview(movieDB.getOverview())
                     .ratingSource(MoviesItemBean.RATING_SOURCE_TMDB)
                     .releaseDate(movieDB.getReleaseDate())
                     .posterPath(movieDB.getPosterPath())
                     .backdropPath(movieDB.getBackdropPath())
-                    .tmdbConfig(getTmdbConfig())
                     .build();
 
             moviesItemBeanList.add(moviesItemBean);
 
         }
 
-        MoviesSectionBean moviesItemBean = new MoviesSectionBean(moviesItemBeanList);
+        MoviesSectionBean moviesItemBean = new MoviesSectionBean(getTmdbConfig(), moviesItemBeanList);
 
         return moviesItemBean;
 
+    }
+
+    private static String getLanguage(MovieDb movieDB) {
+
+        if (movieDB.getSpokenLanguages() == null || movieDB.getSpokenLanguages().size() == 0) {
+            return "N/A";
+        }
+
+        Language language = movieDB.getSpokenLanguages().get(0);
+
+        if (language == null) {
+            return "N/A";
+        }
+
+        return language.getName();
     }
 
     public static TmdbConfig getTmdbConfig() {

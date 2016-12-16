@@ -1,8 +1,17 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'release_key'
+            keyPassword '123456'
+            storeFile file('../signingkeys/memento_key.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 25
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "24.0.1"
     defaultConfig {
         applicationId "com.chaiy.memento"
         minSdkVersion 15
@@ -17,6 +26,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
     }
 }
@@ -29,9 +39,16 @@ dependencies {
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     testCompile 'junit:junit:4.12'
     compile project(path: ':backend', configuration: 'android-endpoints')
-    compile project(':infinitecycleviewpager')
-    compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:cardview-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    apt 'net.simonvt.schematic:schematic-compiler:0.6.3'
+    compile 'net.simonvt.schematic:schematic:0.7.0'
+    compile 'com.firebase:firebase-jobdispatcher:0.5.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.github.devlight:infinitecycleviewpager:1.0.2'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.google.android.gms:play-services-location:10.0.1'
 }

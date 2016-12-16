@@ -2,7 +2,6 @@ package com.chaiy.memento.view.framents;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import com.chaiy.memento.R;
 /**
  * Created by GIGAMOLE on 8/18/16.
  */
-public class VerticalPagerFragment extends Fragment {
+public class VerticalPagerFragment extends BaseFragment {
 
 
     private static final String POSITION = "Position";

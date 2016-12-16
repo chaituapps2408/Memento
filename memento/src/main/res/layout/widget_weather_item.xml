@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widgetWeatherItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/weatherSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/news_read_more_margin"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="@dimen/weather_summary_text_size"
+        tools:text="Weather Summary" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:minHeight="@dimen/weather_details_row_height"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/maxTempLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/maxTempSpacer"
+                android:layout_toStartOf="@+id/maxTempSpacer"
+                android:gravity="center"
+                android:text="@string/max_temp"
+                android:textSize="@dimen/weather_details_text_size" />
+
+            <TextView
+                android:id="@+id/maxTempSpacer"
+                android:layout_width="@dimen/weather_details_spacer_width"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/maxTempValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_toEndOf="@+id/maxTempSpacer"
+                android:layout_toRightOf="@id/maxTempSpacer"
+                android:gravity="center"
+                android:textSize="@dimen/weather_details_text_size"
+                tools:text="16" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:minHeight="@dimen/weather_details_row_height"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/minTempLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@+id/minTempSpacer"
+                android:layout_toStartOf="@+id/minTempSpacer"
+                android:gravity="center"
+                android:text="@string/min_temp"
+                android:textSize="@dimen/weather_details_text_size" />
+
+            <TextView
+                android:id="@+id/minTempSpacer"
+                android:layout_width="@dimen/weather_details_spacer_width"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/minTempValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_toEndOf="@+id/minTempSpacer"
+                android:layout_toRightOf="@id/minTempSpacer"
+                android:gravity="center"
+                android:textSize="@dimen/weather_details_text_size"
+                tools:text="16" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

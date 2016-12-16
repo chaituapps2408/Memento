@@ -1,0 +1,7 @@
+<resources>
+
+
+    <integer name="weather_icon_size">80</integer>
+    <dimen name="weather_details_text_size">25sp</dimen>
+    <dimen name="weather_icon_container_margin_top">10dp</dimen>
+</resources>

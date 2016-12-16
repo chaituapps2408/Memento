@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <ImageView
+        android:id="@+id/newsImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ny_times_img" />
+
+    <TextView
+        android:id="@+id/widgetNewsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_toEndOf="@+id/newsImage"
+        android:layout_toRightOf="@+id/newsImage"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        tools:text="test_w92" />
+</RelativeLayout>

@@ -1,34 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
     android:background="@android:color/holo_blue_dark"
-    android:orientation="vertical">
+    app:cardCornerRadius="2dp"
+    app:cardElevation="20dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@android:color/holo_blue_dark"
-        app:cardCornerRadius="2dp"
-        app:cardElevation="20dp"
-        app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="false">
+        android:orientation="vertical"
+        android:weightSum="2">
 
-
-        <TextView
-            android:id="@+id/weatherSummary"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@android:color/white"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="35sp"
-            tools:text="Weather Summary" />
-    </android.support.v7.widget.CardView>
+            android:layout_margin="@dimen/news_read_more_margin"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weatherSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/news_read_more_margin"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/weather_summary_text_size"
+                tools:text="Weather Summary" />
+
+            <com.chaiy.memento.view.custom.WeatherIconView
+                android:id="@+id/my_weather_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/weatherSummary"
+                android:layout_marginTop="@dimen/weather_icon_container_margin_top"
+                app:weatherIconColor="@android:color/black"
+                app:weatherIconResource="@string/wi_forecast_io_clear_day"
+                app:weatherIconSize="@integer/weather_icon_size"
+                tools:text="Icon" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
 
-</LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minHeight="@dimen/weather_details_row_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/maxTempLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/maxTempSpacer"
+                    android:layout_toStartOf="@+id/maxTempSpacer"
+                    android:gravity="center"
+                    android:text="@string/max_temp"
+                    android:textSize="@dimen/weather_details_text_size" />
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/maxTempSpacer"
+                    android:layout_width="@dimen/weather_details_spacer_width"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/maxTempValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@+id/maxTempSpacer"
+                    android:layout_toRightOf="@id/maxTempSpacer"
+                    android:gravity="center"
+                    android:textSize="@dimen/weather_details_text_size"
+                    tools:text="16" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minHeight="@dimen/weather_details_row_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/minTempLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@+id/minTempSpacer"
+                    android:layout_toStartOf="@+id/minTempSpacer"
+                    android:gravity="center"
+                    android:text="@string/min_temp"
+                    android:textSize="@dimen/weather_details_text_size" />
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/minTempSpacer"
+                    android:layout_width="@dimen/weather_details_spacer_width"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/minTempValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_toEndOf="@+id/minTempSpacer"
+                    android:layout_toRightOf="@id/minTempSpacer"
+                    android:gravity="center"
+                    android:textSize="@dimen/weather_details_text_size"
+                    tools:text="16" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:minHeight="@dimen/weather_details_row_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/precipitationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/precipitationSpacer"
+                    android:layout_toStartOf="@+id/precipitationSpacer"
+                    android:gravity="center"
+                    android:text="@string/precipitation"
+                    android:textSize="@dimen/weather_details_text_size" />
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/precipitationSpacer"
+                    android:layout_width="@dimen/weather_details_spacer_width"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true" />
+
+                <TextView
+                    android:id="@+id/precipitationValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/precipitationSpacer"
+                    android:layout_toRightOf="@+id/precipitationSpacer"
+                    android:gravity="center"
+                    android:textSize="@dimen/weather_details_text_size"
+                    tools:text="16" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
+
+

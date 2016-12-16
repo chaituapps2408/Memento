@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="weather_summary_text_size">35sp</dimen>
+    <dimen name="weather_details_row_height">100dp</dimen>
+    <dimen name="weather_details_text_size">35sp</dimen>
+    <dimen name="weather_details_spacer_width">50dp</dimen>
+    <integer name="weather_icon_size">200</integer>
+</resources>

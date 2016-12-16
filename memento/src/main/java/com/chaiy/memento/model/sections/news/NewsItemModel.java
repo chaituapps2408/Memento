@@ -16,6 +16,15 @@ public class NewsItemModel implements Parcelable {
     String source;
     String url;
 
+    private NewsItemModel(Builder builder) {
+        setHeadLine(builder.headLine);
+        setPublishedDate(builder.publishedDate);
+        setSnippet(builder.snippet);
+        setImagePath(builder.imagePath);
+        setSource(builder.source);
+        setUrl(builder.url);
+    }
+
     public String getSnippet() {
         return snippet;
     }
@@ -91,7 +100,7 @@ public class NewsItemModel implements Parcelable {
         this.url = in.readString();
     }
 
-    public static final Parcelable.Creator<NewsItemModel> CREATOR = new Parcelable.Creator<NewsItemModel>() {
+    public static final Creator<NewsItemModel> CREATOR = new Creator<NewsItemModel>() {
         @Override
         public NewsItemModel createFromParcel(Parcel source) {
             return new NewsItemModel(source);
@@ -102,4 +111,50 @@ public class NewsItemModel implements Parcelable {
             return new NewsItemModel[size];
         }
     };
+
+    public static final class Builder {
+        private String headLine;
+        private String publishedDate;
+        private String snippet;
+        private String imagePath;
+        private String source;
+        private String url;
+
+        public Builder() {
+        }
+
+        public Builder headLine(String val) {
+            headLine = val;
+            return this;
+        }
+
+        public Builder publishedDate(String val) {
+            publishedDate = val;
+            return this;
+        }
+
+        public Builder snippet(String val) {
+            snippet = val;
+            return this;
+        }
+
+        public Builder imagePath(String val) {
+            imagePath = val;
+            return this;
+        }
+
+        public Builder source(String val) {
+            source = val;
+            return this;
+        }
+
+        public Builder url(String val) {
+            url = val;
+            return this;
+        }
+
+        public NewsItemModel build() {
+            return new NewsItemModel(this);
+        }
+    }
 }

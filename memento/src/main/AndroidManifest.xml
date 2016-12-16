@@ -3,6 +3,9 @@
     package="com.chaiy.memento">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +20,86 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".SelectDateActivity" />
+        <activity android:name=".SearchResultsActivity" />
+
+        <provider
+            android:name="com.chaiy.memento.database.provider.MementoProvider"
+            android:authorities="com.chaiy.memento.database.MementoProvider"
+            android:exported="false" />
+
+        <service
+            android:name=".network.MementoService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />"
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.chaiy.memento.network.MementoBgService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".network.MementoAlarmReceiver"
+            android:process=":remote" />
+
+        <!-- Movies StackWidget Provider -->
+        <receiver
+            android:name=".view.widget.MementoMoviesWidgetProvider"
+            android:label="@string/movies">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/movies_widget_provider" />
+        </receiver>
+
+        <!-- Movies StackWidget Service -->
+        <service
+            android:name=".view.widget.MovieStackWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Movies StackWidget Provider -->
+        <receiver
+            android:name=".view.widget.MementoNewsWidgetProvider"
+            android:label="@string/news">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/news_widget_provider" />
+        </receiver>
+
+        <!-- Movies StackWidget Service -->
+        <service
+            android:name=".view.widget.NewsListWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Movies StackWidget Provider -->
+        <receiver
+            android:name=".view.widget.MementoWeatherWidgetProvider"
+            android:label="@string/weather">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_widget_provider" />
+        </receiver>
+
+        <!-- Movies StackWidget Service -->
+        <service
+            android:name=".view.widget.WeatherListWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
     </application>
+
 
 </manifest>

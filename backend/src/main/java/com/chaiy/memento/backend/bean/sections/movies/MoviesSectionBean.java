@@ -11,14 +11,21 @@ import java.util.List;
 
 public class MoviesSectionBean extends BaseSectionBean {
 
+    private final TmdbConfig tmdbConfig;
+
     private final List<MoviesItemBean> moviesItemBeanList;
 
-    public MoviesSectionBean(List<MoviesItemBean> moviesItemBeanList) {
+    public MoviesSectionBean(TmdbConfig tmdbConfig, List<MoviesItemBean> moviesItemBeanList) {
         super(Sections.MOVIES);
+        this.tmdbConfig = tmdbConfig;
         this.moviesItemBeanList = moviesItemBeanList;
     }
 
     public List<MoviesItemBean> getMoviesItemBeanList() {
         return moviesItemBeanList;
+    }
+
+    public TmdbConfig getTmdbConfig() {
+        return tmdbConfig;
     }
 }

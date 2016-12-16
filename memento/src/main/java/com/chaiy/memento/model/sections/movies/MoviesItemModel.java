@@ -14,7 +14,8 @@ public class MoviesItemModel implements Parcelable {
 
     String movieName;
     String releaseDate;
-    String backgroundPath;
+    String overview;
+    String language;
     String rating;
     String ratingSource;
     String posterPath;
@@ -24,7 +25,8 @@ public class MoviesItemModel implements Parcelable {
     private MoviesItemModel(Builder builder) {
         movieName = builder.movieName;
         releaseDate = builder.releaseDate;
-        backgroundPath = builder.backgroundPath;
+        overview = builder.overview;
+        language = builder.language;
         rating = builder.rating;
         ratingSource = builder.ratingSource;
         posterPath = builder.posterPath;
@@ -32,16 +34,29 @@ public class MoviesItemModel implements Parcelable {
         _id = builder._id;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
     public String getMovieName() {
         return movieName;
+    }
+
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
     }
 
     public String getReleaseDate() {
         return releaseDate;
     }
 
-    public String getTmdbConfig() {
-        return backgroundPath;
+
+    public String getOverview() {
+        return overview;
     }
 
     public String getRating() {
@@ -59,7 +74,9 @@ public class MoviesItemModel implements Parcelable {
     public static final class Builder {
         private String movieName;
         private String releaseDate;
+        private String overview;
         private String backgroundPath;
+        private String language;
         private String rating;
         private String ratingSource;
         private long _id;
@@ -79,8 +96,18 @@ public class MoviesItemModel implements Parcelable {
             return this;
         }
 
+        public Builder overview(String val) {
+            overview = val;
+            return this;
+        }
+
         public Builder backgroundPath(String val) {
             backgroundPath = val;
+            return this;
+        }
+
+        public Builder language(String val) {
+            language = val;
             return this;
         }
 
@@ -123,7 +150,8 @@ public class MoviesItemModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.movieName);
         dest.writeString(this.releaseDate);
-        dest.writeString(this.backgroundPath);
+        dest.writeString(this.overview);
+        dest.writeString(this.language);
         dest.writeString(this.rating);
         dest.writeString(this.ratingSource);
         dest.writeString(this.posterPath);
@@ -134,7 +162,8 @@ public class MoviesItemModel implements Parcelable {
     protected MoviesItemModel(Parcel in) {
         this.movieName = in.readString();
         this.releaseDate = in.readString();
-        this.backgroundPath = in.readString();
+        this.overview = in.readString();
+        this.language = in.readString();
         this.rating = in.readString();
         this.ratingSource = in.readString();
         this.posterPath = in.readString();
@@ -142,7 +171,7 @@ public class MoviesItemModel implements Parcelable {
         this._id = in.readLong();
     }
 
-    public static final Parcelable.Creator<MoviesItemModel> CREATOR = new Parcelable.Creator<MoviesItemModel>() {
+    public static final Creator<MoviesItemModel> CREATOR = new Creator<MoviesItemModel>() {
         @Override
         public MoviesItemModel createFromParcel(Parcel source) {
             return new MoviesItemModel(source);

@@ -11,22 +11,32 @@ public class MoviesItemBean {
 
     String movieName;
     String releaseDate;
-    TmdbConfig tmdbConfig;
     String rating;
     String ratingSource;
     String posterPath;
     String backdropPath;
+    String language;
+    String overview;
     long _id;
 
     private MoviesItemBean(Builder builder) {
         movieName = builder.movieName;
         releaseDate = builder.releaseDate;
-        tmdbConfig = builder.tmdbConfig;
         rating = builder.rating;
         ratingSource = builder.ratingSource;
         posterPath = builder.posterPath;
         backdropPath = builder.backdropPath;
+        language = builder.language;
+        overview = builder.overview;
         _id = builder._id;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getOverview() {
+        return overview;
     }
 
     public String getMovieName() {
@@ -35,10 +45,6 @@ public class MoviesItemBean {
 
     public String getReleaseDate() {
         return releaseDate;
-    }
-
-    public TmdbConfig getTmdbConfig() {
-        return tmdbConfig;
     }
 
     public String getRating() {
@@ -53,15 +59,24 @@ public class MoviesItemBean {
         return _id;
     }
 
+    public String getPosterPath() {
+        return posterPath;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
     public static final class Builder {
         private String movieName;
         private String releaseDate;
-        private TmdbConfig tmdbConfig;
         private String rating;
         private String ratingSource;
         private long _id;
         private String posterPath;
         private String backdropPath;
+        private String language;
+        private String overview;
 
         public Builder() {
         }
@@ -73,11 +88,6 @@ public class MoviesItemBean {
 
         public Builder releaseDate(String val) {
             releaseDate = val;
-            return this;
-        }
-
-        public Builder tmdbConfig(TmdbConfig val) {
-            tmdbConfig = val;
             return this;
         }
 
@@ -107,6 +117,16 @@ public class MoviesItemBean {
 
         public Builder backdropPath(String val) {
             backdropPath = val;
+            return this;
+        }
+
+        public Builder language(String val) {
+            language = val;
+            return this;
+        }
+
+        public Builder overview(String val) {
+            overview = val;
             return this;
         }
     }

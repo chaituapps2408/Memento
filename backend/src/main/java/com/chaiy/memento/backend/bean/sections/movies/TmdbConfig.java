@@ -10,7 +10,7 @@ import info.movito.themoviedbapi.model.config.TmdbConfiguration;
 
 public class TmdbConfig {
 
-    public static TmdbConfig tmdbConfig;
+    private static TmdbConfig tmdbConfig;
 
     public static TmdbConfig getInstance() {
         if (tmdbConfig == null) {

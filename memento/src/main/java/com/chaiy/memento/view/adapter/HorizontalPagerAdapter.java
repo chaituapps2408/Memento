@@ -1,10 +1,8 @@
 package com.chaiy.memento.view.adapter;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.LayoutInflater;
 
 import com.chaiy.memento.model.MementoModel;
 import com.chaiy.memento.view.framents.HorizontalPagerFragment;
@@ -14,15 +12,13 @@ import com.chaiy.memento.view.framents.HorizontalPagerFragment;
  */
 public class HorizontalPagerAdapter extends FragmentStatePagerAdapter {
 
-    private final static String[] SECTIONS = {"Movies", "News", "Weather"};
-    private Context mContext;
-    private LayoutInflater mLayoutInflater;
-    private final MementoModel mementoModel;
+    private MementoModel mementoModel;
 
-    public HorizontalPagerAdapter(final Context context, FragmentManager fragmentManager, MementoModel mementoModel) {
+    public HorizontalPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        mContext = context;
-        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public void setData(MementoModel mementoModel) {
         this.mementoModel = mementoModel;
     }
 
@@ -31,13 +27,13 @@ public class HorizontalPagerAdapter extends FragmentStatePagerAdapter {
         if (mementoModel == null) {
             return 0;
         }
-        return mementoModel.getSectionOrder().length;
+        return mementoModel.getSectionOrder().size();
     }
 
     @Override
     public Fragment getItem(int position) {
         HorizontalPagerFragment horizontalPagerFragment = HorizontalPagerFragment.newInstance(mementoModel.getSections()
-                .get(mementoModel.getSectionOrder()[position]));
+                .get(mementoModel.getSectionOrder().get(position)));
 
         return horizontalPagerFragment;
     }
